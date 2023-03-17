@@ -55,15 +55,15 @@ Below in *Figure 1* are the mutation score statistics for the *Range* and *DataU
 # Effect of equivalent mutants on mutation score accuracy <a name="par4"></a>
 
 # How to improve the mutation score of test suites <a name="par5"></a>
-
+In order to increase the mutation scores of a test suite, the amount of surviving mutants needs to go down, and the amount of killed mutants needs to rise. We did this by looking at the list of surviving mutants within our test suites, and then designing new test cases in which the mutant is still used, but the test is designed to fail. This will cause the mutation to be killed.
 # Advantages and disadvantages of mutation testing <a name="par6"></a>
 One of the biggest advantages of mutation testing is that it helps create a reliable and stable end program for the user, as it tests ambiguities within the source code itself. It also provides a high amount of overall coverage of the source program, along with a high amount of error detection. The largest drawback of mutation testing is the amount of time that it takes to perform. Due to this large time cost, it also likely requires external tools to help automate the mutation testing in order to actually complete the tests in a reasonable amount of time. Finally, due to mutation testing directly affecting the source code, it is not a valid to be used of testing for a black box testing process. 
 # SELENIUM test case design process <a name="par7"></a>
-In order to design our test cases for SELENIUM, each member of our group chose 2 functions of the amazon.ca website to test.
+In order to design our test cases for SELENIUM, each member of our group chose 2 functions of the amazon.ca website to test. We avoided any test cases in which we needed to log in to an account, since when you log into an account SELENIUM will store the username and passwords within the test script, and we did not want to put any of our information onto a public repository for anyone to access. Because of this, we each just tested some functionalities within the site that required no account to use.
 # Use of assertions and checkpoints <a name="par8"></a>
-
+Since we did not use any login systems due to the reasons stated above, and mainly just tested button based functionalities we did not use any assertions, as we were unable to assert that anything was true. We used some checkpoints in the form of breakpoints just to confirm that the desired outcome occured within the script.
 # how did you test each functionality with different test data <a name="par9"></a>
-
+For many of our test cases, we used the scripts in multiple ways (such as for changing language from English to French and back to English). This was the best way we found to adjust the data in which our test scripts used. Any tests that did not use this technique, we found it unsuitable to adjust the data, as they were just testing the functionalities of static buttons on the site.
 # Advantages and disadvantages of Selenium vs. Sikulix <a name="par10"></a>
 One of the biggest advantages of the Selenium IDE plug-in was that any actions that are performed on the root website are automatically recorded and can be replayed at any point in time. This saves a lot of time for developers carrying out end-to-end tests as they do not have to learn how to get the web locators manually as well as recording it in a language such as python or javascript using Robot Framework.
 
