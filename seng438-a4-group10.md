@@ -32,10 +32,19 @@ In this lab, we were tasked with two separate tasks to complete. The first task 
 |Test Case|Mutant|Explanation|
 |------|------|------|
 |![Alt text](/media/tc1.png?raw=true "Test Case 1")|Substituted -9.0 with -1.0 (survived)|Since only the upper bound is returned and the mutant changes the lower bound values, the mutant survives and the test passes.|
-|![Alt text](/media/tc2.png?raw=true "Test Case 1")|Substituted -9.0 with 9.0 (survived)|Since only the upper bound is returned and the mutant changes to the previous lower bound to be the new upper bound, the mutant is killed and the test fails.|
+|![Alt text](/media/tc2.png?raw=true "Test Case 2")|Substituted -9.0 with 9.0 (killed)|Since only the upper bound is returned and the mutant changes to the previous lower bound to be the new upper bound, the mutant is killed and the test fails.|
+|![Alt text](/media/tc3.png?raw=true "Test Case 3")|Substituted -9.0 with -1.0 (survived)|Since only the upper bound is returned and the mutant changes the lower bound values, the mutant survives and the test passes.|
+|![Alt text](/media/tc4.png?raw=true "Test Case 4")|Substituted .000000001 with 1.0 (survived)|Since the only value being adjusted is the decimal point formatting of the answer, the length value does not change and thus the mutant survives ad the test passes.|
+|![Alt text](/media/tc5.png?raw=true "Test Case 5")|Substituted 0 with 1.0 in ExampleRange1 (killed)|Since the upper bound of the range is adjusted by 1, the total length changes and the mutant is killed, since the test fails.|
+|![Alt text](/media/tc6.png?raw=true "Test Case 6")|Substituted 2147483647 with 1.0 in ExampleRange2 (killed)|Since the upper bound of the range is changed to 1, the total length changes and the mutant is killed, since the test fails.|
+|![Alt text](/media/tc7.png?raw=true "Test Case 7")|Substitute 3.0 with 1.0 (survived)|Since only the upper bound is changed, and only the lower bound is changed by the mutant, the mutant survives and the test passes.|
+|![Alt text](/media/tc8.png?raw=true "Test Case 8")|Substituted 1.0 with -1.0 in ExampleRange1 (killed)|Since the upper bound of 1.0 is changed to -1.0 the range no longer contains the value 0, thus the mutant is killed and the test fails.|
+|![Alt text](/media/tc9.png?raw=true "Test Case 9")|Removed call to org/free/data/Range::contains (killed)|Since the assertTrue no longer calls the contains method, the mutant is killed and the test fails.|
+|![Alt text](/media/tc10.png?raw=true "Test Case 10")|Substitute 6.0 with 5.0 in ExampleRange4 (survived)|Since the upper bound is changed from 6 to 5, the value of -1 is still not within the range, and thus the mutant survives and the test passes.|
 
 # Statistics and the mutation score for each test class <a name="par2"></a>
 Below in *Figure 1* are the mutation score statistics for the *Range* and *DataUtilities* classes before we adjusted any of our test suite from Assignment 3. *Figure 2* showcases the new mutation score statistics after we adjusted the mutation score of our test suite.
+
 *Figure 1 - Mutation Coverage from Assignment 3*
 ![Alt text](/media/originalmut.jpg?raw=true "Original Mutation Coverage")
 *Figure 2 - Mutation Coverage from Assignment 4*
