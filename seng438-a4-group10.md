@@ -1,6 +1,6 @@
 **SENG 438 - Software Testing, Reliability, and Quality**
 
-**Lab. Report \#4 – Mutation Testing and Web app testing**
+**Lab. Report \#4 – Mutation Testing and Web App Testing**
 
 | Group: 10      |
 |-----------------|
@@ -26,7 +26,7 @@
 14. [Comments/feedback on the lab itself.](#par13)
 
 # Introduction <a name="introduction"></a>
-In
+In this lab, we were tasked with two separate tasks to complete. The first task was to use mutation testing to further the coverage our previously made test cases for *Range* and *DataUtilities.* The second portion of this assignment was to use *SELENIUM IDE* plug-in to perform automated GUI testing on a popular website, in this case *amazon.ca*. 
 # Analysis of 10 Mutants of the Range class <a name="par1"></a>
 
 |Test Case|Mutant|Explanation|
@@ -34,8 +34,12 @@ In
 |![Alt text](/media/tc1.png?raw=true "Test Case 1")|Substituted -9.0 with -1.0 (survived)|Since only the upper bound is returned and the mutant changes the lower bound values, the mutant survives and the test passes.|
 |![Alt text](/media/tc2.png?raw=true "Test Case 1")|Substituted -9.0 with 9.0 (survived)|Since only the upper bound is returned and the mutant changes to the previous lower bound to be the new upper bound, the mutant is killed and the test fails.|
 
-
 # Statistics and the mutation score for each test class <a name="par2"></a>
+Below in *Figure 1* are the mutation score statistics for the *Range* and *DataUtilities* classes before we adjusted any of our test suite from Assignment 3. *Figure 2* showcases the new mutation score statistics after we adjusted the mutation score of our test suite.
+*Figure 1 - Mutation Coverage from Assignment 3*
+![Alt text](/media/originalmut.jpg?raw=true "Original Mutation Coverage")
+*Figure 2 - Mutation Coverage from Assignment 4*
+![Alt text](/media/newmut.jpg?raw=true "New Mutation Coverage")
 
 # Effectiveness of each of the test classes <a name="par3"></a>
 
