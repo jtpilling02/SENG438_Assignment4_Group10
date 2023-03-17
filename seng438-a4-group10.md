@@ -25,7 +25,7 @@
 13. [Comments/feedback on the lab itself.](#par13)
 
 # Introduction <a name="introduction"></a>
-In this lab, we were tasked with two separate tasks to complete. The first task was to use mutation testing to further the coverage our previously made test cases for *Range* and *DataUtilities.* The second portion of this assignment was to use *SELENIUM IDE* plug-in to perform automated GUI testing on a popular website, in this case *amazon.ca*. 
+In this lab, we were tasked with two separate tasks to complete. The first task was to use mutation testing to further the coverage our previously made test cases for `Range` and `DataUtilities.` The second portion of this assignment was to use `SELENIUM IDE` plug-in to perform automated GUI testing on a popular website, in this case *amazon.ca*. 
 # Analysis of 10 Mutants of the Range class <a name="par1"></a>
 
 |Test Case|Mutant|Explanation|
@@ -42,20 +42,23 @@ In this lab, we were tasked with two separate tasks to complete. The first task 
 |![Alt text](/media/tc10.png?raw=true "Test Case 10")|Substitute 6.0 with 5.0 in ExampleRange4 (survived)|Since the upper bound is changed from 6 to 5, the value of -1 is still not within the range, and thus the mutant survives and the test passes.|
 
 # Statistics and the mutation score for each test class <a name="par2"></a>
-Below in *Figure 1* are the mutation score statistics for the *Range* and *DataUtilities* classes before we adjusted any of our test suite from Assignment 3. *Figure 2* showcases the new mutation score statistics after we adjusted the mutation score of our test suite.
+Below in *Figure 1* are the mutation score statistics for the `Range` and `DataUtilities` classes before we adjusted any of our test suite from Assignment 3. *Figure 2* showcases the new mutation score statistics after we adjusted the mutation score of our test suite.
 
 *Figure 1 - Mutation Coverage from Assignment 3*
 ![Alt text](/media/originalmut.jpg?raw=true "Original Mutation Coverage")
 *Figure 2 - Mutation Coverage from Assignment 4*
 ![Alt text](/media/newmut.jpg?raw=true "New Mutation Coverage")
 
-Here you can see that both of the classes mutation coverage increased by over 10% after our adjustments to our test cases. For our test cases, it can be seen that our *Range* test suite is overall effective, as it kills more mutants that survive. The same is not true for our *DataUtilities* test suite, since it had more suriving mutants than those that were killed.
+Here you can see that both of the classes mutation coverage increased by over 10% after our adjustments to our test cases. For our test cases, it can be seen that our `Range` test suite is overall effective, as it kills more mutants that survive. The same is not true for our `DataUtilities` test suite, since it had more suriving mutants than those that were killed.
 
 # Effect of equivalent mutants on mutation score accuracy <a name="par4"></a>
 Equivalent mutants are mutations that exhibit the exact behaviour of the program in which they mutated from. They effective act as a sort of false positive within the test case, and thus cannot be caught by a test case. One way in which a equivelent mutant can be determined after the execution of a mutation test is that all killed mutants will never be an equivalent mutant, as they exhibited different behaviour from the program. Therefore, we know that any equivalent mutants were either not covered due to lack of coverage, or survived.
 A mutation score should not be impacted by the amount of equivalent mutations within a system, as the mutation score is the number of killed mutants divided by the total number of non-equivalent mutants.
 
-Currently the main way of finding equivalent mutants would be to go through all of the surviving mutants in the system and check each one by hand to see if they are equivalent or not based on what was changed within the code. Automatically finding equivalent mutants is still a difficult task to do, and has not been fully perfected.
+Some of the equivalent mutants found within our test suite were many test cases within `Range` in which the value that was determined was set to a specific decimal length using *0.000000001d* and was changed to another number. This lead to equivalent mutants as these test cases were not affected by the amount of decimal places included in the final result.
+
+Currently the main way of finding equivalent mutants would be to go through all of the surviving mutants in the system and check each one by hand to see if they are equivalent or not based on what was changed within the code. Automatically finding equivalent mutants is still a difficult task to do, and has not been fully perfected. One way in which this might be possible is through the use of constraining the type of test cases that are created, so that no equivalent mutants are created to begin with.
+One major advantage of this would be cutting down both the execution time of mutation testing, and remove the need to look for equivalent mutants afterwards. One disadvantage of this strategy would be the time it would take to create and calculate a script to constrain test cases. This idea assumes that it is even possible to set limitations on what can and cannot be mutated within a test case.
 # How to improve the mutation score of test suites <a name="par5"></a>
 In order to increase the mutation scores of a test suite, the amount of surviving mutants needs to go down, and the amount of killed mutants needs to rise. We did this by looking at the list of surviving mutants within our test suites, and then designing new test cases in which the mutant is still used, but the test is designed to fail. This will cause the mutation to be killed.
 # Advantages and disadvantages of mutation testing <a name="par6"></a>
